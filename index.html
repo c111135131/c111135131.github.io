@@ -3,63 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>插畫美術館</title>
+    <title>印象派插畫展示</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            background: linear-gradient(135deg, #f2d7d5, #d6eaf8);
             overflow-x: hidden;
         }
+
+        /* 柔和的多層背景色彩 */
         .gallery-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            padding: 50px;
-            background-color: #fff;
-            min-height: 100vh;
+            padding: 100px;
+            background: linear-gradient(145deg, rgba(255, 220, 186, 0.6), rgba(189, 224, 254, 0.8));
+            backdrop-filter: blur(5px);
             position: relative;
+            min-height: 100vh;
         }
+
+        /* 插畫卡片效果，添加色彩光暈 */
         .art-piece {
-            width: 300px;
-            height: 400px;
-            margin: 20px;
+            width: 350px;
+            height: 500px;
+            margin: 30px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background-color: #fff;
-            transition: transform 0.5s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 50px rgba(255,170,170,0.6);
+            border-radius: 15px;
+            transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease;
         }
+
+        /* 色彩互動與浮動效果 */
         .art-piece:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 100px rgba(255,220,120,0.8);
+            background-color: rgba(255, 235, 200, 0.9);
         }
+
         .art-piece img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 1s ease;
+            transition: opacity 0.6s ease, filter 0.6s ease;
+            filter: brightness(0.95);
         }
+
         .art-piece:hover img {
-            opacity: 0.8;
+            opacity: 0.85;
+            filter: brightness(1.2);
         }
-        .art-piece .description {
+
+        /* 插畫描述區塊 */
+        .description {
             position: absolute;
             bottom: -100px;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
             text-align: center;
-            transition: bottom 0.5s ease;
-            font-size: 16px;
-            opacity: 0.9;
+            font-size: 18px;
+            font-weight: bold;
+            transition: bottom 0.6s ease;
+            border-radius: 0 0 15px 15px;
+            color: #4c4c4c;
         }
+
         .art-piece:hover .description {
             bottom: 0;
         }
+
+        /* 全屏模式查看插畫 */
         .full-screen {
             position: fixed;
             top: 0;
@@ -72,46 +91,60 @@
             align-items: center;
             z-index: 1000;
         }
+
         .full-screen img {
             max-width: 80%;
             max-height: 80%;
         }
+
         .close-btn {
             position: absolute;
             top: 20px;
             right: 20px;
             color: #fff;
-            font-size: 24px;
+            font-size: 32px;
             cursor: pointer;
+        }
+
+        /* 背景色彩的緩慢變化 */
+        @keyframes colorShift {
+            0% {
+                background: linear-gradient(145deg, rgba(255, 220, 186, 0.6), rgba(189, 224, 254, 0.8));
+            }
+            50% {
+                background: linear-gradient(145deg, rgba(255, 230, 200, 0.8), rgba(200, 255, 255, 0.9));
+            }
+            100% {
+                background: linear-gradient(145deg, rgba(255, 220, 186, 0.6), rgba(189, 224, 254, 0.8));
+            }
+        }
+
+        .gallery-container {
+            animation: colorShift 10s infinite ease-in-out;
         }
     </style>
 </head>
 <body>
+
     <div class="gallery-container">
         <div class="art-piece" onclick="showFullScreen('art1.jpg')">
             <img src="art1.jpg" alt="插畫 1">
-            <div class="description">插畫 1 的描述</div>
+            <div class="description">印象派插畫 1 的描述</div>
         </div>
         <div class="art-piece" onclick="showFullScreen('art2.jpg')">
             <img src="art2.jpg" alt="插畫 2">
-            <div class="description">插畫 2 的描述</div>
+            <div class="description">印象派插畫 2 的描述</div>
         </div>
         <div class="art-piece" onclick="showFullScreen('art3.jpg')">
             <img src="art3.jpg" alt="插畫 3">
-            <div class="description">插畫 3 的描述</div>
+            <div class="description">印象派插畫 3 的描述</div>
         </div>
-        <!-- 可添加更多的插畫 -->
     </div>
 
     <div class="full-screen" id="fullScreen">
         <span class="close-btn" onclick="closeFullScreen()">✖</span>
         <img id="fullScreenImg" src="" alt="全屏插畫">
     </div>
-
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="background.mp3" type="audio/mp3">
-        您的瀏覽器不支持音頻播放。
-    </audio>
 
     <script>
         function showFullScreen(imgSrc) {
@@ -122,16 +155,7 @@
         function closeFullScreen() {
             document.getElementById('fullScreen').style.display = 'none';
         }
-
-        // 控制背景音樂
-        var backgroundMusic = document.getElementById("backgroundMusic");
-        document.body.addEventListener("click", function() {
-            if (backgroundMusic.paused) {
-                backgroundMusic.play();
-            } else {
-                backgroundMusic.pause();
-            }
-        });
     </script>
+
 </body>
 </html>
