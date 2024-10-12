@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+body {
+    background-color: white;
+    color:#49381e;
+}
+
+button {
+    cursor: pointer;
+}
+
+nav {
+    font-weight: bold;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: #F7D876 solid 4px;
+    animation-name: nav;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes nav {
+    20% {
+        border-color: #F7D876;
+    }
+
+    40% {
+        border-color: #76F7F2;
+    }
+
+    60% {
+        border-color: #F7A376;
+    }
+
+    80% {
+        border-color: #A5F776;
+    }
+
+    100% {
+        border-color: #CD76F7;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #49381e;
+}
+
+nav a.logo {
+    font-size: 35px;
+    margin: 10px;
+}
+
+nav .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav .link a:not(:last-child) {
+    margin-right: 50px;
+}
+
+nav .link a {
+    font-size: 20px;
+}
+
+nav .darkMode button {
+    border: transparent solid 3px;
+    border-radius: 50%;
+    padding: 7px 10px;
+    font-size: 30px;
+    background-color: transparent;
+    color: #49381e
+}
+
+nav .login button {
+    padding: 9px 23px;
+    font-size: 20px;
+    color: #49381e;
+    border: #49381e solid 3px;
+    border-radius: 5px;
+    background-color: transparent;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+    border: transparent solid 3px;
+    background-color: #49381e;
+    color: white;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 0px;
+    margin: 0 100px;
+    gap: 50px;
+}
+
+header .left h1 {
+    font-size: 35px;
+}
+
+header .left span {
+    font-size: 60px;
+    color: #F7D876;
+    animation-name: thema;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes thema {
+    20% {
+        color: #F7D876;
+    }
+
+    40% {
+        color: #76F7F2;
+    }
+
+    60% {
+        color: #F7A376;
+    }
+
+    80% {
+        color: #A5F776;
+    }
+
+    100% {
+        color: #CD76F7;
+    }
+}
+
+header .left p {
+    font-size: 17px;
+    margin: 10px 0 30px 0;
+}
+ 
+header a {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    padding: 7px 140px;
+    border: #49381e solid 4px;
+    border-radius: 5px;
+    color: #49381e;
+}
+header a:hover{
+    letter-spacing: 0.05em;
+    color: #49381e;
+    animation: none;
+}
+a span {
+    position: absolute;
+    display: block;
+    background-color: #F7D876;
+}
+
+a span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+a:hover span:nth-child(1) {
+    transform: scaleX(1);
+    transform-origin: right;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes span {
+    20% {
+        background-color: #F7D876;
+    }
+
+    40% {
+        background-color: #76F7F2;
+    }
+
+    60% {
+        background-color: #F7A376;
+    }
+
+    80% {
+        background-color: #A5F776;
+    }
+
+    100% {
+        background-color: #CD76F7;
+    }
+}
+a span:nth-child(2) {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: right;
+}
+a:hover span:nth-child(2) {
+    transform: scaleX(1);
+    transform-origin: left;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+a span:nth-child(3) {
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    transform-origin: bottom;
+    transition-delay: .3s;
+}
+a:hover span:nth-child(3) {
+    transform: scaleY(1);
+    transform-origin: top;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+a span:nth-child(4) {
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    transform-origin: bottom;
+    transition-delay: .3s;
+}
+a:hover span:nth-child(4) {
+    transform: scaleY(1);
+    transform-origin: top;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+a span:nth-child(5) {
+    bottom:  0;
+    left: 0;
+    width: 50%;
+    height: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: right;
+    transition-delay: .3s;
+}
+a:hover span:nth-child(5) {
+    transform: scaleX(1);
+    transform-origin: left;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+a span:nth-child(6) {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: left;
+    transition-delay: .3s;
+}
+a:hover span:nth-child(6) {
+    transform: scaleX(1);
+    transform-origin: right;
+    animation-name: span;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+header .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    animation-name: right;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes right{
+    0% {
+        left: -1em;
+        bottom: -1em;
+        transform: rotate(5deg);
+    }
+    
+    50% {
+        left: 1em;
+        bottom: 3em;
+        transform: rotate(-5deg);
+    }
+    100% {
+        left: -1em;
+        bottom: -1em;
+        transform: rotate(5deg);
+    }
+}
+
+.face img {
+    width: 75vh;
+}
+
+.face {
+    position: relative;
+    animation-name: face;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes face {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        left: 0px;
+        top: 0px;
+    }
+    50% {
+        left: 330px;
+        top: 0px;
+    }
+    75% {
+        left: 0px;
+        top: 0px;
+    }
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+/* left eye */
+.leftEye {
+    width: 30vh;
+    width: 30vh;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    animation-name: leftEye;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+.leftEye img {
+    width: 17vh;
+}
+@keyframes leftEye {
+    0% {
+        left: 33%
+    }
+    25% {
+        left: 33%
+    }
+    50% {
+        left: 550px;
+    }
+    75% {
+        left: 33%
+    }
+    100% {
+        left: 33%
+    }
+}
+
+/* right eye */
+.rightEye {
+    width: 15vh;
+    position: absolute;
+    top: 29%;
+    right: 21%;
+    animation-name: rightEye;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+.rightEye img {
+    width: 15vh;
+}
+@keyframes rightEye {
+    0% {
+        right: 21%
+    }
+    25% {
+        right: 21%
+    }
+    50% {
+        right: -300px;
+    }
+    75% {
+        right: 21%
+    }
+    100% {
+        right: 21%
+    }
+}
+
+.whisker img {
+    width: 77vh;
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    animation-name: whisker;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes whisker {
+    0% {
+        left: 0px
+    }
+    25% {
+        left: 0px
+    }
+    50% {
+        left: 400px
+    }
+    75% {
+        left: 0px
+    }
+    100% {
+        left: 0px
+    }
+}
+.mouth img {
+    width: 45vh;
+    position: absolute;
+    top: 53%;
+    left: 23%;
+    animation-name: mouth;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes mouth {
+    0% {
+        left: 23%
+    }
+    25% {
+        left: 23%
+    }
+    50% {
+        left: 550px
+    }
+    75% {
+        left: 23%
+    }
+    100% {
+        left: 23%
+    }
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+   
+}
+
+/* xl */
+@media (max-width: 1120px) {
+    body{
+        /* background-color: orange; */
+    }
+    header .left h1 {
+        font-size: 32px;
+    }
+    header .left span {
+        font-size: 55px;
+    }
+    header .left p {
+        font-size: 15px;
+    }
+    header a {
+        font-size: 27px;
+        padding: 7px 135px;
+    }
+    .face img {
+        width: 70vh;
+    }
+    .leftEye img {
+        width: 15vh;
+    }
+    .rightEye img {
+        width: 13vh;
+    }
+    .whisker img {
+        width: 73vh;
+    }
+    .mouth img {
+        width: 40vh;
+    }
+    
+   
+}
+
+/* ipad */
+@media (max-width: 1050px) {
+    header {
+        margin: 0 50px;
+    }
+    header .left h1 {
+        font-size: 29px;
+    }
+    header .left span {
+        font-size: 50px;
+    }
+    header .left p {
+        font-size: 13px;
+    }
+    header a {
+        font-size: 25px;
+        padding: 7px 115px;
+    }
+    .face img {
+        width: 65vh;
+    }
+    .leftEye img {
+        width: 14vh;
+    }
+    .rightEye img {
+        width: 12vh;
+    }
+    .whisker img {
+        width: 70vh;
+    }
+    .mouth img {
+        width: 37vh;
+    }
+    nav .link {
+        gap: 0;
+    } 
+}
+
+/* tablets */
+@media (max-width: 870px) {
+    header {
+        margin: 0 30px;
+    }
+    header .left h1 {
+        font-size: 25px;
+    }
+    header .left span {
+        font-size: 45px;
+    }
+    header .left p {
+        font-size: 13px;
+    }
+    header a {
+        font-size: 20px;
+        padding: 7px 105px;
+    }
+    nav a.logo {
+        font-size: 30px;
+    }
+    nav .link a {
+        font-size: 20px;
+    }
+    .face img {
+        width: 60vh;
+    }
+    .leftEye img {
+        width: 13vh;
+    }
+    .rightEye img {
+        width: 11vh;
+    }
+    .whisker img {
+        width: 67vh;
+    }
+    .mouth img {
+        width: 35vh;
+    }
+
+}

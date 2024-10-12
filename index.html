@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Meowory Card</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo" onclick=location.reload()>
+            LadyMeow
+        </a>
+        <div class="link">
+            <a href=".">Home</a>
+            <a href="#">Subscribe</a>
+            <a href="#">LadyMeow</a>
+            <a href="#">About</a>
+            <!-- <div class="login">
+                <button>Login</button>
+            </div> -->
+            <!-- <div class="darkMode" onclick = darkMode()>
+                <button id="darkMode"><i class="fa-solid fa-moon"></i></button>
+            </div> -->
+        </div>
+    </nav>
+
+    <header>
+        <div class="left">
+            <h1>Let's Deepen Memory by<span><br>Meowory Card</span></h1>
+            <p>build one by one floor into your own Memory Card</p>
+            <div>
+                <a href="#" onclick='location.href=("./selectPage/index.html")'>Get start
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="right" id="right">
+            <div class="face" id="face">
+                <img src="./img/face.PNG">
+            </div>
+
+            <div class="leftEye">
+                <img class="leye" src="./img/leftEye.PNG">
+            </div>
+            
+            <div class="rightEye">
+                <img class="eye" src="./img/rightEye.PNG">
+            </div>
+            <div class="whisker">
+                <img src="./img/==.PNG">
+            </div>
+            <div class="mouth">
+                <img src="./img/mouth.PNG">
+            </div>
+        </div>
+
+
+    </header>
+</body>
+
+<script>
+    /*
+    // 眼睛跟著滑鼠移動
+    // document.addEventListener('mousemove', (e) => {
+
+        // 抓到滑鼠移動所在的位置
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // leftEye圓心
+        const lefteye = document.querySelector('.lefteye');
+        const rekt = lefteye.getBoundingClientRect();
+        const centerX = rekt.left + rekt.width / 2;
+        const centerY = rekt.top + rekt.height / 2;
+
+        // 滑鼠(x,y)->圓心角度 (逆時針)
+        const angleValue = angle(mouseX, mouseY, centerX, centerY);
+
+        //lefteye圓心半徑!!!problemhere
+        const r = rekt.width / 2;
+
+
+        // 算出相對應的圓周長座標 x=cx+r⋅cos(θ) y=cy+r⋅sin(θ)
+        const x = centerX + r * Math.cos(angleValue);
+        const y = centerY + r * Math.sin(angleValue);
+        console.log(x, y);
+
+        //  leye圓心
+        const leye = document.querySelector('.leye');
+        const rekt1 = leye.getBoundingClientRect();
+        const cx = rekt1.left + rekt1.width / 2;
+        const cy = rekt1.top + rekt1.height / 2;
+
+        //leye位置???
+        leye.style.left = `${(cx + x)}px`;
+        leye.style.top = `${(cy+y)}px`;
+    // });
+    function angle(cx, cy, ex, ey) {
+        const dx = ey - cy;
+        const dy = ex - cx;
+        const angle = Math.atan2(dy, dx);
+        const angleValue = angle * 180 / Math.PI;
+        return angleValue;
+    }
+    */
+    
+    /*
+    //darkMode
+    function darkMode() {
+        document.getElementById('darkMode').addEventListener('click', () => {
+            document.querySelector('body').style.backgroundColor = '#191818';
+            document.querySelector('header').style.color = 'white';
+            document.querySelectorAll('nav a').forEach((item) => {
+                item.style.color = 'white';
+            });
+            document.querySelectorAll('nav button').forEach((item) => {
+                item.style.color = 'white';
+            });
+        });
+    }
+    */
+</script>
+
+</html>
