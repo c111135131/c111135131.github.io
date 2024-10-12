@@ -1,65 +1,137 @@
-</html><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LM插畫網站</title>
+    <title>插畫美術館</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
         }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        .gallery {
+        .gallery-container {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            margin: 2em 0;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: #fff;
+            min-height: 100vh;
+            position: relative;
         }
-
-        .gallery img {
-            margin: 1em;
-            max-width: 300px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
+        .art-piece {
+            width: 300px;
+            height: 400px;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+            transition: transform 0.5s ease;
         }
-
-        footer {
-            background-color: #00ffe5;
-            color: #fff;
-            padding: 1em 0;
-            position: fixed;
+        .art-piece:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .art-piece img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease;
+        }
+        .art-piece:hover img {
+            opacity: 0.8;
+        }
+        .art-piece .description {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            transition: bottom 0.5s ease;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .art-piece:hover .description {
             bottom: 0;
+        }
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .full-screen img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Lady Meow 插畫展示</h1>
-    </header>
-    <main>
-        <section class="gallery">
-            <img src="images/ladymeow1.jpg" alt="Lady Meow 插畫 1">
-            <img src="images/ladymeow2.jpg" alt="Lady Meow 插畫 2">
-            <img src="images/ladymeow3.jpg" alt="Lady Meow 插畫 3">
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 LM 插畫網站</p>
-    </footer>
+    <div class="gallery-container">
+        <div class="art-piece" onclick="showFullScreen('art1.jpg')">
+            <img src="art1.jpg" alt="插畫 1">
+            <div class="description">插畫 1 的描述</div>
+        </div>
+        <div class="art-piece" onclick="showFullScreen('art2.jpg')">
+            <img src="art2.jpg" alt="插畫 2">
+            <div class="description">插畫 2 的描述</div>
+        </div>
+        <div class="art-piece" onclick="showFullScreen('art3.jpg')">
+            <img src="art3.jpg" alt="插畫 3">
+            <div class="description">插畫 3 的描述</div>
+        </div>
+        <!-- 可添加更多的插畫 -->
+    </div>
+
+    <div class="full-screen" id="fullScreen">
+        <span class="close-btn" onclick="closeFullScreen()">✖</span>
+        <img id="fullScreenImg" src="" alt="全屏插畫">
+    </div>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="background.mp3" type="audio/mp3">
+        您的瀏覽器不支持音頻播放。
+    </audio>
+
+    <script>
+        function showFullScreen(imgSrc) {
+            document.getElementById('fullScreen').style.display = 'flex';
+            document.getElementById('fullScreenImg').src = imgSrc;
+        }
+
+        function closeFullScreen() {
+            document.getElementById('fullScreen').style.display = 'none';
+        }
+
+        // 控制背景音樂
+        var backgroundMusic = document.getElementById("backgroundMusic");
+        document.body.addEventListener("click", function() {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+            } else {
+                backgroundMusic.pause();
+            }
+        });
+    </script>
 </body>
 </html>
